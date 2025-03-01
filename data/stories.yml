@@ -1,0 +1,107 @@
+version: "3.1"
+
+stories:
+- story: schedule appointment happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: schedule_appointment
+  - action: utter_ask_doctor_specialty
+  - intent: inform
+    entities:
+    - doctor_specialty: cardiologist
+  - slot_was_set:
+    - doctor_specialty: cardiologist
+  - action: action_check_doctor_availability
+  - action: utter_ask_appointment_date
+  - intent: inform
+    entities:
+    - date: tomorrow
+  - slot_was_set:
+    - appointment_date: tomorrow
+  - action: utter_ask_appointment_time
+  - intent: inform
+    entities:
+    - time: morning
+  - slot_was_set:
+    - appointment_time: morning
+  - action: utter_ask_location
+  - intent: inform
+    entities:
+    - location: downtown
+  - slot_was_set:
+    - location: downtown
+  - action: action_schedule_appointment
+  - action: utter_appointment_scheduled
+  - intent: thank_you
+  - action: utter_thank_you
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: emergency inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: emergency_inquiry
+    entities:
+    - emergency_type: chest pain
+  - slot_was_set:
+    - emergency_type: chest pain
+  - action: action_find_nearest_emergency
+  - action: utter_emergency_redirect
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: pathology inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: pathology_inquiry
+    entities:
+    - test_type: blood
+  - slot_was_set:
+    - test_type: blood
+  - action: action_find_nearest_pathology
+  - action: utter_pathology_redirect
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: opening hours inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: holiday hours inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: holiday_hours
+  - action: utter_holiday_hours
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: find specialist
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: find_specialist
+    entities:
+    - doctor_specialty: neurologist
+  - slot_was_set:
+    - doctor_specialty: neurologist
+  - action: action_check_doctor_availability
+  - action: utter_specialist_available
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: specific request requiring human
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: specific_request
+  - action: action_human_handoff
+  - action: utter_human_handoff

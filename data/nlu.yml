@@ -1,0 +1,166 @@
+
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - greetings
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - take care
+    - until next time
+
+- intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - appreciate it
+    - thanks a lot
+    - thank you so much
+    - thanks for your help
+
+- intent: schedule_appointment
+  examples: |
+    - I need to see a doctor
+    - I want to book an appointment
+    - Can I schedule a visit?
+    - Need to make an appointment
+    - I'd like to see a [cardiologist](doctor_specialty)
+    - Need to book with a [pediatrician](doctor_specialty)
+    - Appointment with [dermatologist](doctor_specialty) please
+    - I want to consult a [neurologist](doctor_specialty)
+    - Can I see a [gynecologist](doctor_specialty) next [Tuesday](date)?
+    - I need a [dentist](doctor_specialty) appointment [tomorrow](date)
+    - Schedule a checkup for [October 15th](date)
+    - Book me for [9am](time) on [Friday](date)
+    - Any slots at [3:30pm](time)?
+    - Is there a [morning](time) appointment available?
+
+- intent: emergency_inquiry
+  examples: |
+    - This is an emergency
+    - I need urgent care
+    - My [chest](emergency_type) hurts badly
+    - I'm having trouble [breathing](emergency_type)
+    - There's been an accident
+    - My child has a high [fever](emergency_type)
+    - Severe [bleeding](emergency_type)
+    - Possible [heart attack](emergency_type)
+    - [Broken bone](emergency_type)
+    - Severe [allergic reaction](emergency_type)
+    - I think I'm having a [stroke](emergency_type)
+
+- intent: pathology_inquiry
+  examples: |
+    - I need a [blood](test_type) test
+    - Where can I get my [urine](test_type) sample tested?
+    - Need a [throat swab](test_type)
+    - Where's your pathology department?
+    - Do I need an appointment for [X-ray](test_type)?
+    - How to submit [stool](test_type) sample?
+    - For [biopsy](test_type) results
+    - I need to get [glucose](test_type) levels checked
+    - Where to submit [pathology](test_type) samples?
+
+- intent: opening_hours
+  examples: |
+    - What are your hours?
+    - When are you open?
+    - What time do you close?
+    - Are you open on [weekends](time)?
+    - Do you work on [Sundays](time)?
+    - Opening hours please
+    - When does the clinic open?
+    - Until what time are you open on [Friday](time)?
+
+- intent: holiday_hours
+  examples: |
+    - Are you open on [Christmas](time)?
+    - Holiday schedule
+    - Do you work on [public holidays](time)?
+    - [New Year's](time) hours
+    - Are you closed for [Thanksgiving](time)?
+    - [Holiday](time) working hours
+    - [Independence Day](time) schedule
+
+- intent: find_specialist
+  examples: |
+    - Do you have a [cardiologist](doctor_specialty)?
+    - I'm looking for a [skin](doctor_specialty) doctor
+    - When is the [ENT](doctor_specialty) available?
+    - Is there a [pediatrician](doctor_specialty) available?
+    - I need a [specialist](doctor_specialty) for [diabetes](emergency_type)
+    - Do you have [spine](doctor_specialty) specialists?
+    - Looking for a good [oncologist](doctor_specialty)
+    - I need to consult with a [neurologist](doctor_specialty)
+
+- intent: specific_request
+  examples: |
+    - I need help with my ongoing treatment
+    - Question about my medication
+    - I need to discuss my test results
+    - Question about my insurance coverage
+    - I need medical records transferred
+    - Can I get a prescription refilled?
+    - I need a doctor's note for work
+    - What's the status of my referral?
+    - I have questions about the side effects of my medication
+    - Need help understanding my diagnosis
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - ok
+    - okay
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+
+- intent: inform
+  examples: |
+    - [Monday](date)
+    - [Tuesday](date) at [2pm](time)
+    - [morning](time)
+    - [afternoon](time)
+    - at [downtown](location)
+    - [north](location) clinic
+    - [main](location) hospital
+    - [children's](location) department
+    - my location is [west](location) side
+    - [January 5th](date)
+    - [next week](date)
+    - [Friday](date) [evening](time)
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What's the weather like?
+    - Tell me a joke
+    - How old are you?
+    - Can you recommend a movie?
